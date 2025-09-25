@@ -1,0 +1,92 @@
+const express = require('express');
+const authController = require('../controllers/authController');
+const { authMiddleware } = require('../middlewares/authMiddleware');
+const {
+  registerValidation,
+  loginValidation,
+  updateProfileValidation,
+  changePasswordValidation
+} = require('../middlewares/validateMiddleware');
+
+const router = express.Router();
+
+// Public routes
+router.post('/register', registerValidation, authController.register);
+router.post('/login', loginValidation, authController.login);
+
+// Protected routes
+router.use(authMiddleware); // Apply auth middleware to all routes below
+
+router.get('/me', authController.getCurrentUser);
+router.put('/profile', updateProfileValidation, authController.updateProfile);
+router.put('/change-password', changePasswordValidation, authController.changePassword);
+router.post('/logout', authController.logout);
+
+module.exports = router;
+
+
+const express = require('express');
+const projectController = require('../controllers/projectController');
+const { authMiddleware } = require('../middlewares/authMiddleware');
+const {
+  createProjectValidation,
+  updateProjectValidation,
+  validateObjectId
+} = require('../middlewares/validateMiddleware');
+
+const router = express.Router();
+
+// Apply auth middleware to all routes
+router.use(authMiddleware);
+
+// Project CRUD routes
+router.post('/', createProjectValidation, projectController.createProject);
+router.get('/', projectController.getProjects);
+router.get('/stats', projectController.getProjectStats);
+router.get('/recent', projectController.getRecentProjects);
+router.get('/:id', validateObjectId, projectController.getProjectById);
+router.put('/:id', validateObjectId, updateProjectValidation, projectController.updateProject);
+router.delete('/:id', validateObjectId, projectController.deleteProject);
+
+// Project with tasks
+router.get('/:id/with-tasks', validateObjectId, projectController.getProjectWithTasks);
+
+module.exports = router;
+
+const express = require('express');
+const taskController = require('../controllers/taskController');
+const { authMiddleware } = require('../middlewares/authMiddleware');
+const {
+  createTaskValidation,
+  updateTaskValidation,
+  updateTaskStatusValidation,
+  moveTaskValidation,
+  validateObjectId,
+  validateProjectId
+} = require('../middlewares/validateMiddleware');
+
+const router = express.Router();
+
+// Apply auth middleware to all routes
+router.use(authMiddleware);
+
+// Task stats and personal tasks
+router.get('/stats', taskController.getTaskStats);
+router.get('/my-tasks', taskController.getMyTasks);
+router.get('/upcoming', taskController.getUpcomingTasks);
+
+// Task CRUD routes
+router.post('/', createTaskValidation, taskController.createTask);
+router.get('/:id', validateObjectId, taskController.getTaskById);
+router.put('/:id', validateObjectId, updateTaskValidation, taskController.updateTask);
+router.delete('/:id', validateObjectId, taskController.deleteTask);
+
+// Task status and movement
+router.patch('/:id/status', validateObjectId, updateTaskStatusValidation, taskController.updateTaskStatus);
+router.patch('/:id/move', validateObjectId, moveTaskValidation, taskController.moveTask);
+
+// Project-specific task routes
+router.get('/project/:projectId', validateProjectId, taskController.getTasksByProject);
+router.get('/project/:projectId/kanban', validateProjectId, taskController.getKanbanBoard);
+
+module.exports = router;
