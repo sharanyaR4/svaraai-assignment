@@ -14,9 +14,10 @@ A full-stack web application developed as part of the Svaraai assignment, featur
 ## 🛠️ Tech Stack
 
 **Frontend:**
+- Next.js
+- TypeScript
+- Tailwind CSS
 - React.js
-- HTML5/CSS3
-- JavaScript (ES6+)
 
 **Backend:**
 - Node.js
@@ -26,6 +27,7 @@ A full-stack web application developed as part of the Svaraai assignment, featur
 **Tools:**
 - npm/yarn
 - Git version control
+- TypeScript compiler
 
 ## 📋 Prerequisites
 
@@ -34,6 +36,7 @@ Before running this application, make sure you have the following installed:
 - Node.js (v14 or higher)
 - npm or yarn
 - Git
+- TypeScript (if not installed globally)
 
 ## ⚡ Quick Start
 
@@ -65,7 +68,7 @@ Before running this application, make sure you have the following installed:
 5. **Start the frontend application**
    ```bash
    cd ../frontend
-   npm start
+   npm run dev
    ```
    The frontend will run on `http://localhost:3000`
 
@@ -79,13 +82,18 @@ svaraai-assignment/
 │   ├── middleware/         # Custom middleware
 │   ├── config/             # Configuration files
 │   └── server.js           # Entry point
-├── frontend/               # Frontend React app
+├── frontend/               # Frontend Next.js app
 │   ├── src/
 │   │   ├── components/     # React components
-│   │   ├── pages/          # Page components
+│   │   ├── pages/          # Next.js pages
+│   │   ├── styles/         # Tailwind CSS styles
+│   │   ├── types/          # TypeScript type definitions
 │   │   ├── services/       # API services
-│   │   └── App.js          # Main App component
-│   └── public/             # Static files
+│   │   └── utils/          # Utility functions
+│   ├── public/             # Static files
+│   ├── next.config.js      # Next.js configuration
+│   ├── tailwind.config.js  # Tailwind CSS configuration
+│   └── tsconfig.json       # TypeScript configuration
 └── README.md
 ```
 
@@ -104,19 +112,6 @@ The backend provides the following API endpoints:
 2. Use the interface to interact with the application
 3. All data operations are handled through the backend API
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is created for assignment purposes.
-
-## 👤 Author
 
 **Sharanya R**
 - GitHub: [@sharanyaR4](https://github.com/sharanyaR4)
