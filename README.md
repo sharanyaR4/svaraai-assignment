@@ -1,74 +1,126 @@
 # Svaraai Assignment
 
-A full-stack application (frontend + backend) developed as part of the Svaraai assignment.  
-This repository contains two main parts:
+A full-stack web application developed as part of the Svaraai assignment, featuring a modern frontend interface and a robust backend API.
 
-- `frontend` — the client (UI)  
-- `backend` — the Express (Node.js) server / API  
+## 🚀 Features
 
----
+- RESTful APIs for CRUD operations
+- Input validation & error handling
+- Structured project architecture
+- Frontend-backend integration
+- Responsive user interface
+- Modern development practices
 
-## Table of Contents
+## 🛠️ Tech Stack
 
-- [Demo / Screenshots](#demo--screenshots)  
-- [Features](#features)  
-- [Tech Stack](#tech-stack)  
-- [Getting Started](#getting-started)  
-  - [Prerequisites](#prerequisites)  
-  - [Setup & Installation](#setup--installation)  
-  - [Running the App](#running-the-app)  
-- [API Endpoints](#api-endpoints)  
-- [Environment Variables](#environment-variables)  
-- [Folder Structure](#folder-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
+**Frontend:**
+- React.js
+- HTML5/CSS3
+- JavaScript (ES6+)
 
----
+**Backend:**
+- Node.js
+- Express.js
+- RESTful API design
 
-## Demo / Screenshots
+**Tools:**
+- npm/yarn
+- Git version control
 
-*(Add screenshots or demo link here — e.g., UI, API calls, etc.)*
+## 📋 Prerequisites
 
----
+Before running this application, make sure you have the following installed:
 
-## Features
+- Node.js (v14 or higher)
+- npm or yarn
+- Git
 
-- RESTful APIs for CRUD operations  
-- Input validation & error handling  
-- Structured project architecture  
-- Frontend interacts with backend APIs  
-- (Add other features your assignment includes here)  
+## ⚡ Quick Start
 
----
-
-## Tech Stack
-
-**Frontend:**  
-*(list frameworks/libraries you used — e.g. React, Vue, Angular, etc.)*
-
-**Backend:**  
-- Node.js  
-- Express  
-- (Any other backend libraries you used, e.g. Mongoose / Sequelize, etc.)
-
-**Others / Tools:**  
-- (Testing frameworks, linting, build tools, etc.)
-
----
-
-## Getting Started
-
-### Prerequisites
-
-Make sure you have installed:
-
-- Node.js (v14 or above recommended)  
-- npm or yarn  
-- (If you have DB dependencies, e.g. MongoDB / PostgreSQL, ensure they are running)  
-
-### Setup & Installation
-
-1. Clone the repository  
+1. **Clone the repository**
    ```bash
    git clone https://github.com/sharanyaR4/svaraai-assignment.git
    cd svaraai-assignment
+   ```
+
+2. **Install backend dependencies**
+   ```bash
+   cd backend
+   npm install
+   ```
+
+3. **Install frontend dependencies**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+
+4. **Start the backend server**
+   ```bash
+   cd ../backend
+   npm start
+   ```
+   The backend server will run on `http://localhost:5000`
+
+5. **Start the frontend application**
+   ```bash
+   cd ../frontend
+   npm start
+   ```
+   The frontend will run on `http://localhost:3000`
+
+## 📁 Project Structure
+
+```
+svaraai-assignment/
+├── backend/                 # Backend API server
+│   ├── routes/             # API routes
+│   ├── models/             # Data models
+│   ├── middleware/         # Custom middleware
+│   ├── config/             # Configuration files
+│   └── server.js           # Entry point
+├── frontend/               # Frontend React app
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── pages/          # Page components
+│   │   ├── services/       # API services
+│   │   └── App.js          # Main App component
+│   └── public/             # Static files
+└── README.md
+```
+
+## 🔗 API Endpoints
+
+The backend provides the following API endpoints:
+
+- `GET /api/` - Get all items
+- `POST /api/` - Create new item
+- `PUT /api/:id` - Update item by ID
+- `DELETE /api/:id` - Delete item by ID
+
+## 🌟 Usage
+
+1. Open your browser and navigate to `http://localhost:3000`
+2. Use the interface to interact with the application
+3. All data operations are handled through the backend API
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is created for assignment purposes.
+
+## 👤 Author
+
+**Sharanya R**
+- GitHub: [@sharanyaR4](https://github.com/sharanyaR4)
+
+---
+
+*This project was developed as part of the Svaraai technical assignment.*
